@@ -1,0 +1,39 @@
+name: Releases
+
+on: [push]
+
+jobs:
+  release:
+    strategy:
+      matrix:
+        include:
+          - os: macos-11
+            name: mac
+            ext: ''
+          - os: windows-latest
+            name: windows
+            ext: .exe
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python Version
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    
+    - name: Install Pip Dependencies
+      shell: bash
+      run: pip install -r requirements.txt
+
+    - name: Build
+      shell: bash
+      run: pyinstaller --onefile app.py
+
+    - name: Upload
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-${{ matrix.name }}
+        path: dist/app${{ matrix.ext }}

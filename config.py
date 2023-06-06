@@ -4,7 +4,7 @@ PORT = 8085  # 监听端口
 
 # *****扫描配置*****
 ASSETS_PATH = (
-    r"/home",
+    r"/Users/xiaozhihua/Desktop/video",
     # r"D:/照片",  # Windows系统用这种写法
 )  # 素材所在的目录，绝对路径
 SKIP_PATH = (
