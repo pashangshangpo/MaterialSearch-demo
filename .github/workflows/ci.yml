@@ -30,7 +30,7 @@ jobs:
 
     - name: Build
       shell: bash
-      run: pyinstaller --onefile app.py
+      run: pyinstaller --onefile main.py
 
     - name: Upload
       uses: actions/upload-artifact@v2
