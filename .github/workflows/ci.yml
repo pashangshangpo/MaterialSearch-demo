@@ -35,5 +35,5 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v2
       with:
-        name: app-${{ matrix.name }}
-        path: dist/app${{ matrix.ext }}
+        name: main-${{ matrix.name }}
+        path: dist/main${{ matrix.ext }}
